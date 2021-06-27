@@ -8,7 +8,7 @@ RPi & Jetson NANO에서 설치
 <img src='https://user-images.githubusercontent.com/68526662/123538422-d16f3500-d76f-11eb-8473-1a7b05a242bf.PNG'>
 
 <h2>Node 정보</h2>
-<img src='https://user-images.githubusercontent.com/68526662/123538710-265f7b00-d771-11eb-9506-8f9c76cc13c9.PNG'>
+<img src='https://user-images.githubusercontent.com/68526662/123538939-23b15580-d772-11eb-9b2a-786493425ba0.PNG'>
 
 <p>
   Worker-node01 ~ node04 -> Jetson Nano <br />
