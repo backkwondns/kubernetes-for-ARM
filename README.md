@@ -11,5 +11,6 @@ RPi & Jetson NANO에서 설치
 <img src='https://user-images.githubusercontent.com/68526662/123538710-265f7b00-d771-11eb-9506-8f9c76cc13c9.PNG'>
 
 <p>
-  Worker-node01 ~ node04 -> Jetson Nano
+  Worker-node01 ~ node04 -> Jetson Nano <br />
   Worker-node11, 12 -> Raspberry Pi 4
+</p>
