@@ -23,6 +23,7 @@ spec:
         volumeMounts:
           - name: mongo-persistent-storage
             mountPath: /var/lib/mongodb/
+      ## affinity를 통해 같은 노드에 PO가 생성되는것을 막고 worker node1 과 node2에 생성하도록 설정
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
