@@ -58,6 +58,6 @@ spec:
     - protocol: TCP
       targetPort: 27017
       port: 27018
-      nodePort: 31111
+      nodePort: 3XXXX
   type: NodePort
 
