@@ -1,1 +1,3 @@
 yaml file for po, deploy, pv, pvc, service ...
+
+mongodb PV connected master node by NFS 
