@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mongo
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: mongo
+    spec:
+      containers:
+      - image: webhippie/mongodb
+        name: mongo
+        ports:
+        - containerPort: 27017
+          name: mongo
+        volumeMounts:
+          - name: mongo-persistent-storage
+            mountPath: /var/lib/mongodb/
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - mongo
+            topologyKey: "kubernetes.io/hostname"
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: type
+                operator: In
+                values:
+                - nano
+      volumes:
+      - name: mongo-persistent-storage
+        persistentVolumeClaim:
+          claimName: mongo-pv-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-svc
+spec:
+  selector:
+    app: mongo
+  ports:
+    - protocol: TCP
+      targetPort: 27017
+      port: 27018
+      nodePort: 31111
+  type: NodePort
+
